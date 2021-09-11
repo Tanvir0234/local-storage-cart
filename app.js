@@ -1,26 +1,27 @@
 const inputField = document.getElementById('input-field');
+//Etar kaj ki bujtesi na 
 /*
 const displayLocalStorageCart = () =>{
     const cart = getCartItem();
     //cart object
-    for (const addProduct of cart){
-        showItem(addProduct);
+    for (const itemName of cart){
+        showItem(itemName);
     }
 }
 */
 
 const addItem = () =>{
 
-    const addProduct = inputField.value;
+    const itemName = inputField.value;
 
-    if(!addProduct){
+    if(!itemName){
         return
     }
    //display te dekhabe
-   showItem(addProduct)
+   showItem(itemName)
 
    //local storage 
-   addProductToCart(addProduct);
+   addProductToCart(itemName);
 
    
 
@@ -30,10 +31,10 @@ const addItem = () =>{
 
 }
 
-const showItem = addProduct => {
+const showItem = itemName => {
     const ul = document.getElementById('products');
     const li = document.createElement('li')
-    li.innerText = addProduct;
+    li.innerText = itemName;
     ul.appendChild(li);
 }
 const getCartItem = () => {
@@ -50,20 +51,20 @@ const getCartItem = () => {
 
 }
 
-const addProductToCart = addProduct => {
+const addProductToCart = itemName => {
     const cart =getCartItem();
     /*
     eta jehetu object tai
-    cart.addProduct 
+    cart.itemName 
     er poriborte
-    cart[addProduct] use hoyeche 
+    cart[itemName] use hoyeche 
     kaj aktai 
     */
-    if(cart[addProduct]){     
-        cart[addProduct] = cart[addProduct] + 1;
+    if(cart[itemName]){     
+        cart[itemName] = cart[itemName] + 1;
     }
     else{
-        cart[addProduct] = 1;
+        cart[itemName] = 1;
     }
     const cartStringified = JSON.stringify(cart);
     localStorage.setItem('cart',cartStringified);
