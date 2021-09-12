@@ -1,14 +1,14 @@
 const inputField = document.getElementById('input-field');
 //Etar kaj ki bujtesi na 
-/*
+//object akare tai for in use hoyeche
 const displayLocalStorageCart = () =>{
     const cart = getCartItem();
     //cart object
-    for (const itemName of cart){
+    for (const itemName in cart){
         showItem(itemName);
     }
 }
-*/
+
 
 const addItem = () =>{
 
@@ -75,4 +75,4 @@ const placeOrder =() =>{
     localStorage.removeItem('cart');
 }
 
-//displayLocalStorageCart();
+displayLocalStorageCart();
